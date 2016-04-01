@@ -89,7 +89,7 @@ int main(){
 	ll* linked_list = create_ll();
 	int choose, val, idx;
 	while(1==1){
-		puts("What do you want to do? 1-add an element, 2-print elements 3-print backwards: ");
+		printf("What do you want to do? 1-add an element, 2-print elements 3-print backwards: ");
 		scanf("%d", &choose);
 		switch(choose){
 			case 1:
@@ -100,6 +100,7 @@ int main(){
 			case 2: print_ll(linked_list); printf("\n"); break;
 			case 3: print_ll_bck(linked_list); printf("\n"); break;
 			default: printf("Wrong choice\n");
+			printf("\n\n\n\n");
 		}
 	}
 }
