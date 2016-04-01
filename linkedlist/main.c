@@ -68,7 +68,7 @@ void print_ll_bck(ll *linked_list){
 void add_node_after_inx(ll* linked_list, int value, int index){
 	index++;
 	element* temp=linked_list->start;
-	if (index<=0) { printf("Error: index must be greater than 0"); return; }
+	if (index<=0) { printf("Error: index must be greater than 0"); fflush(stdout); return; }
 	while(temp->next!=NULL && index>0){
 		temp=temp->next;
 		index--;
