@@ -24,23 +24,27 @@ ll* create_ll(){
 
 void print_ll(ll *linked_list){
 	puts("");
-	if (linked_list->start->next!=NULL && linked_list->start->prev==NULL){ printf("There is no elements"); return; }
-	while (linked_list->start->next!=NULL){
-		printf("%d, ", linked_list->start->value);
-		linked_list->start=linked_list->start->next;
+	element* temp=linked_list->start;
+	if (temp->next==NULL && temp->prev==NULL){ printf("There is no elements"); return; }
+	while (temp->next!=NULL){
+		printf("%d, ", temp->value);
+		temp=temp->next;
 	}
-	if (linked_list->start->prev!=NULL)
-		printf("%d, ", linked_list->start->value);
+	if (temp->prev!=NULL)
+		printf("%d, ", temp->value);
 }
 
 void add_node_after_inx(ll* linked_list, int value, int index){
+	element* temp=linked_list->start;
 	if (index<=0) printf("Error: index must be greater than 0");
-	while(linked_list->start->next!=NULL && index>0){
-		linked_list->start=linked_list->start->next;
+	while(temp->next!=NULL && index>0){
+		temp=temp->next;
+		index--;
 	}
 		element* node = (element*)malloc(sizeof(element));
-		node->prev=linked_list->start;
+		node->prev=temp;
 		node->prev->next=node;
+		node->next=NULL;
 		node->value=value;
 }
 
@@ -48,7 +52,11 @@ void add_node_after_inx(ll* linked_list, int value, int index){
 
 int main(){
 	ll* linked_list = create_ll();
-	add_node_after_inx(linked_list, 4, 1);
+	add_node_after_inx(linked_list, 1, 1);
+	add_node_after_inx(linked_list, 2, 2);
+	add_node_after_inx(linked_list, 3, 3);
+	add_node_after_inx(linked_list, 4, 4);
+	add_node_after_inx(linked_list, 5, 4);
 	print_ll(linked_list);
 }
 
