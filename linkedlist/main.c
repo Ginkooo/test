@@ -100,8 +100,8 @@ int main(){
 			case 2: print_ll(linked_list); printf("\n"); break;
 			case 3: print_ll_bck(linked_list); printf("\n"); break;
 			default: printf("Wrong choice\n");
-			printf("\n\n\n\n");
 		}
+		printf("\n\n\n\n");
 	}
 }
 
